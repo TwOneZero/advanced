@@ -12,7 +12,7 @@ public class TraceTemplate {
         this.trace = trace;
     }
 
-    public <T> T execute(String message, hello.proxy.trace.callback.TraceCallback<T> callback) {
+    public <T> T execute(String message, TraceCallback<T> callback) {
         TraceStatus status = null;
         try {
             status = trace.begin(message);

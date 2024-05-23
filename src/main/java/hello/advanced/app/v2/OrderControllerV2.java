@@ -5,12 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RequiredArgsConstructor
-// @Controller -> Component 스캔 대상이 돼서 사용 안하기
-@RequestMapping
-@ResponseBody
+@RestController // 스프링 6 & 부트 3 이상에서는 @Controller 나 @RestController 로 해야만 인식됨.
 public class OrderControllerV2 {
     private final OrderServiceV2 orderService;
 
