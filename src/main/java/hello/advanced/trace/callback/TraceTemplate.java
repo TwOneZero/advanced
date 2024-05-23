@@ -1,7 +1,8 @@
-package hello.proxy.trace.callback;
+package hello.advanced.trace.callback;
 
-import hello.proxy.trace.TraceStatus;
-import hello.proxy.trace.logtrace.LogTrace;
+
+import hello.advanced.trace.TraceStatus;
+import hello.advanced.trace.logtrace.LogTrace;
 
 public class TraceTemplate {
 
@@ -11,7 +12,7 @@ public class TraceTemplate {
         this.trace = trace;
     }
 
-    public <T> T execute(String message, TraceCallback<T> callback) {
+    public <T> T execute(String message, hello.proxy.trace.callback.TraceCallback<T> callback) {
         TraceStatus status = null;
         try {
             status = trace.begin(message);

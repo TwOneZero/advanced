@@ -1,7 +1,8 @@
-package hello.proxy.trace.template;
+package hello.advanced.trace.template;
 
-import hello.proxy.trace.TraceStatus;
-import hello.proxy.trace.logtrace.LogTrace;
+
+import hello.advanced.trace.TraceStatus;
+import hello.advanced.trace.logtrace.LogTrace;
 
 public abstract class AbstractTemplate<T> {
 
