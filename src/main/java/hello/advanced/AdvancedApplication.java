@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Import;
 
 //@Import({AppV1Config.class, AppV2Config.class})
 //@Import(ConcreteProxyConfig.class)
-@Import(DynamicProxyBasicConfig.class)
+@Import(DynamicProxyFilterConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.advanced.app.v3")
 public class AdvancedApplication {
 
