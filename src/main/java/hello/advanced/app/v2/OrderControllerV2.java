@@ -1,31 +1,26 @@
 package hello.advanced.app.v2;
 
-
-import hello.advanced.trace.hellotrace.HelloTraceV2;
-import hello.advanced.trace.TraceStatus;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Slf4j
 @RequiredArgsConstructor
+@RestController // 스프링 6 & 부트 3 이상에서는 @Controller 나 @RestController 로 해야만 인식됨.
 public class OrderControllerV2 {
-
     private final OrderServiceV2 orderService;
-    private final HelloTraceV2 trace;
 
     @GetMapping("/v2/request")
     public String request(String itemId) {
+        orderService.orderItem(itemId);
+        return "ok";
+    }
 
-        TraceStatus status = null;
-        try {
-            status = trace.begin("OrderController.request()");
-            orderService.orderItem(itemId, status.getTraceId());
-            trace.end(status);
-            return "ok";
-        } catch (Exception e) {
-            trace.exception(status, e);
-            throw e;
-        }
+    @GetMapping("/v2/no-log")
+    public String noLog() {
+        return "ok";
     }
 }

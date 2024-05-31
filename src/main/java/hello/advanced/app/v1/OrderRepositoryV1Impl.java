@@ -1,10 +1,7 @@
-package hello.advanced.app.v3;
+package hello.advanced.app.v1;
 
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class OrderRepositoryV3 {
+public class OrderRepositoryV1Impl implements OrderRepositoryV1 {
+    @Override
     public void save(String itemId) {
         //저장 로직
         if (itemId.equals("ex")){
@@ -20,4 +17,5 @@ public class OrderRepositoryV3 {
             throw new RuntimeException(e);
         }
     }
+
 }
